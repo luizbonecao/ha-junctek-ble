@@ -1,0 +1,50 @@
+# Ponte Bluetooth (Bluetooth proxy) para quem NAO tem Bluetooth no Home Assistant.
+# Grave isto num ESP32 comum, deixe-o perto do Junctek (ate uns 5 m) e pronto:
+# o Home Assistant passa a "ouvir" o Bluetooth pelo ESP32 e a integracao
+# Junctek KG-F Bluetooth acha o monitor sozinha.
+
+substitutions:
+  nome_dispositivo: "ponte-bluetooth"
+  nome_amigavel: "Ponte Bluetooth"
+
+esphome:
+  name: ${nome_dispositivo}
+  friendly_name: ${nome_amigavel}
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "${nome_amigavel} Fallback"
+    password: !secret ap_password
+
+captive_portal:
+
+esp32_ble_tracker:
+  scan_parameters:
+    active: true
+
+# "active: true" deixa o Home Assistant CONECTAR nos aparelhos pelo ESP32
+# (necessario para o Junctek, que manda os dados por conexao).
+bluetooth_proxy:
+  active: true
+
+sensor:
+  - platform: wifi_signal
+    name: "Sinal WiFi"
+    update_interval: 60s
+    entity_category: diagnostic

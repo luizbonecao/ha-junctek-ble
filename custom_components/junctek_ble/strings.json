@@ -1,0 +1,89 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Choose your Junctek",
+        "description": "Devices heard right now by Home Assistant's Bluetooth (adapter or ESP32 proxy). The Junctek usually shows up as BTG166. Close the phone app first: the monitor accepts only one connection.",
+        "data": {
+          "address": "Bluetooth device",
+          "capacity_ah": "Battery capacity"
+        },
+        "data_description": {
+          "capacity_ah": "Used to calculate the battery percentage."
+        }
+      },
+      "confirm": {
+        "title": "Add {name}?",
+        "description": "Junctek monitor {name} was found over Bluetooth. Close the phone app first: the monitor accepts only one connection.",
+        "data": {
+          "capacity_ah": "Battery capacity"
+        },
+        "data_description": {
+          "capacity_ah": "Used to calculate the battery percentage."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This Junctek is already added.",
+      "no_devices_found": "No Bluetooth device found. Make sure Home Assistant has Bluetooth (built-in, USB adapter or an ESPHome Bluetooth proxy) and that the Junctek is within range."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Battery settings",
+        "data": {
+          "capacity_ah": "Battery capacity"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "voltage": {
+        "name": "Voltage"
+      },
+      "current": {
+        "name": "Current"
+      },
+      "power": {
+        "name": "Power"
+      },
+      "soc": {
+        "name": "Battery"
+      },
+      "remaining_ah": {
+        "name": "Remaining capacity"
+      },
+      "time_left": {
+        "name": "Time remaining"
+      },
+      "temperature": {
+        "name": "Temperature"
+      },
+      "status": {
+        "name": "Status",
+        "state": {
+          "charging": "Charging",
+          "discharging": "Discharging",
+          "idle": "Idle"
+        }
+      },
+      "charged_ah": {
+        "name": "Total charged"
+      },
+      "discharged_ah": {
+        "name": "Total discharged"
+      },
+      "rssi": {
+        "name": "Bluetooth signal"
+      }
+    },
+    "binary_sensor": {
+      "connected": {
+        "name": "Connected"
+      }
+    }
+  }
+}

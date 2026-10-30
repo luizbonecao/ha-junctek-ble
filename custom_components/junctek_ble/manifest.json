@@ -1,0 +1,21 @@
+{
+  "domain": "junctek_ble",
+  "name": "Junctek KG-F Bluetooth",
+  "bluetooth": [
+    {
+      "local_name": "BTG*",
+      "connectable": true
+    }
+  ],
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": [
+    "bluetooth_adapters"
+  ],
+  "documentation": "https://github.com/luizbonecao/ha-junctek-ble",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/luizbonecao/ha-junctek-ble/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}

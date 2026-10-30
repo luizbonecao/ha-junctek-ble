@@ -1,0 +1,89 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Escolha o seu Junctek",
+        "description": "Aparelhos que o Bluetooth do Home Assistant (adaptador ou ponte ESP32) está ouvindo agora. O Junctek normalmente aparece como BTG166. Feche o app do celular antes: o monitor aceita só uma conexão por vez.",
+        "data": {
+          "address": "Aparelho Bluetooth",
+          "capacity_ah": "Capacidade da bateria"
+        },
+        "data_description": {
+          "capacity_ah": "Usada para calcular a porcentagem da bateria."
+        }
+      },
+      "confirm": {
+        "title": "Adicionar {name}?",
+        "description": "O monitor Junctek {name} foi encontrado pelo Bluetooth. Feche o app do celular antes: o monitor aceita só uma conexão por vez.",
+        "data": {
+          "capacity_ah": "Capacidade da bateria"
+        },
+        "data_description": {
+          "capacity_ah": "Usada para calcular a porcentagem da bateria."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Este Junctek já foi adicionado.",
+      "no_devices_found": "Nenhum aparelho Bluetooth encontrado. Confira se o Home Assistant tem Bluetooth (do computador, adaptador USB ou ponte Bluetooth ESPHome) e se o Junctek está perto."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Configurações da bateria",
+        "data": {
+          "capacity_ah": "Capacidade da bateria"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "voltage": {
+        "name": "Tensão"
+      },
+      "current": {
+        "name": "Corrente"
+      },
+      "power": {
+        "name": "Potência"
+      },
+      "soc": {
+        "name": "Bateria"
+      },
+      "remaining_ah": {
+        "name": "Capacidade restante"
+      },
+      "time_left": {
+        "name": "Tempo restante"
+      },
+      "temperature": {
+        "name": "Temperatura"
+      },
+      "status": {
+        "name": "Estado",
+        "state": {
+          "charging": "Carregando",
+          "discharging": "Descarregando",
+          "idle": "Parado"
+        }
+      },
+      "charged_ah": {
+        "name": "Total carregado"
+      },
+      "discharged_ah": {
+        "name": "Total descarregado"
+      },
+      "rssi": {
+        "name": "Sinal Bluetooth"
+      }
+    },
+    "binary_sensor": {
+      "connected": {
+        "name": "Conectado"
+      }
+    }
+  }
+}
